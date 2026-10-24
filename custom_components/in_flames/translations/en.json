@@ -1,0 +1,124 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "In Flames fireplace",
+        "description": "Control a Tuya electric fireplace over your LAN, without the Tuya cloud. To fetch the device's local key, sign in once with the Smart Life (or Tuya Smart) app; after setup nothing talks to the cloud.",
+        "menu_options": {
+          "cloud": "Sign in with the Smart Life app (finds the local key for you)",
+          "manual": "Enter IP, device ID and local key manually"
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigure In Flames",
+        "description": "Use this after re-pairing the fireplace in the app (that changes its local key) or if its IP changed.",
+        "menu_options": {
+          "cloud": "Sign in with the Smart Life app (finds the local key for you)",
+          "manual": "Enter IP, device ID and local key manually"
+        }
+      },
+      "cloud": {
+        "title": "Smart Life sign-in",
+        "description": "Enter your Smart Life user code. Find it in: {where}.\n\n{error}",
+        "data": {
+          "user_code": "User code"
+        }
+      },
+      "scan": {
+        "title": "Scan with the Smart Life app",
+        "description": "In the Smart Life app tap **+** (top right) → **Scan**, scan this code and confirm the login in the app. Then press **Submit**.\n\n{error}"
+      },
+      "pick": {
+        "title": "Choose your fireplace",
+        "description": "Electric fireplaces on this Smart Life account. Models marked untested may use different datapoints.",
+        "data": {
+          "device": "Fireplace"
+        }
+      },
+      "locate": {
+        "title": "Fireplace address",
+        "description": "{name} didn't answer the LAN discovery broadcast (Home Assistant and the fireplace may be on different networks/VLANs). Enter its IP address - a DHCP reservation for it is a good idea.",
+        "data": {
+          "host": "IP address"
+        }
+      },
+      "manual": {
+        "title": "Manual setup",
+        "description": "Protocol 3.4 devices only.",
+        "data": {
+          "host": "IP address",
+          "device_id": "Tuya device ID",
+          "local_key": "Local key"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not complete the session handshake or read status. Check the IP and local key.",
+      "invalid_key": "The local key must be 16 characters.",
+      "cloud_error": "Tuya rejected the request: {error}",
+      "scan_failed": "Login not confirmed yet: {error}. A fresh QR code is shown - scan it and confirm in the app."
+    },
+    "abort": {
+      "already_configured": "This fireplace is already configured (its settings were updated).",
+      "reconfigure_successful": "Reconfigured.",
+      "wrong_device": "That is a different device than this entry was set up for.",
+      "no_fireplaces": "No electric fireplace (Tuya category dbl) with a local key was found among the {count} devices on this account.",
+      "unsupported_version": "This device speaks Tuya protocol {version}; this integration supports 3.4 only."
+    }
+  },
+  "entity": {
+    "switch": {
+      "flame_light": {
+        "name": "Flame light"
+      },
+      "sound": {
+        "name": "Sound"
+      },
+      "child_lock": {
+        "name": "Child lock"
+      }
+    },
+    "select": {
+      "timer": {
+        "name": "Shut-off timer",
+        "state": {
+          "cancel": "Off",
+          "1h": "1 hour",
+          "2h": "2 hours",
+          "3h": "3 hours",
+          "4h": "4 hours",
+          "5h": "5 hours",
+          "6h": "6 hours"
+        }
+      },
+      "sound_mode": {
+        "name": "Sound effect",
+        "state": {
+          "sound_1": "Sound 1",
+          "sound_2": "Sound 2",
+          "sound_3": "Sound 3"
+        }
+      }
+    },
+    "sensor": {
+      "room_temperature": {
+        "name": "Room temperature"
+      }
+    },
+    "climate": {
+      "fireplace": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "level_1": "Level 1",
+              "level_2": "Level 2",
+              "level_3": "Level 3",
+              "level_4": "Level 4",
+              "level_5": "Level 5"
+            }
+          }
+        }
+      }
+    }
+  }
+}
