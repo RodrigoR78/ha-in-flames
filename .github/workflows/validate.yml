@@ -30,3 +30,13 @@ jobs:
           python-version: "3.13"
       - run: pip install cryptography
       - run: python tools/fake_device_test.py custom_components/in_flames
+
+  boot-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+      - run: pip install homeassistant
+      - run: python tests/test_boot.py

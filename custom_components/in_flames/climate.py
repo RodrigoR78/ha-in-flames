@@ -59,7 +59,7 @@ class InFlamesClimate(InFlamesEntity, ClimateEntity):
         return self.fp.dps.get(DP_UNIT, "f") == "f"
 
     @property
-    def temperature_unit(self) -> str:
+    def native_temperature_unit(self) -> str:
         return UnitOfTemperature.FAHRENHEIT if self._fahrenheit else UnitOfTemperature.CELSIUS
 
     @property
@@ -71,11 +71,11 @@ class InFlamesClimate(InFlamesEntity, ClimateEntity):
         return (TEMP_RANGE_F if self._fahrenheit else TEMP_RANGE_C)[1]
 
     @property
-    def current_temperature(self) -> float | None:
+    def native_current_temperature(self) -> float | None:
         return self.fp.dps.get(DP_TEMP_CURRENT_F if self._fahrenheit else DP_TEMP_CURRENT_C)
 
     @property
-    def target_temperature(self) -> float | None:
+    def native_target_temperature(self) -> float | None:
         return self.fp.dps.get(DP_TEMP_SET_F if self._fahrenheit else DP_TEMP_SET_C)
 
     @property

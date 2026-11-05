@@ -34,7 +34,7 @@ Tuya electric fireplaces (Tuya category `dbl`) using **local protocol 3.4**. Man
 
 ## Requirements
 
-- Home Assistant **2026.3** or newer (the integration icon needs 2026.3).
+- Home Assistant **2026.11** or newer (uses the `native_*` climate temperature API added in that release).
 - The fireplace set up in the Smart Life / Tuya Smart app.
 - Home Assistant and the fireplace on the same network. Auto-discovery listens for the fireplace's UDP broadcast; across VLANs you can type its IP instead.
 
